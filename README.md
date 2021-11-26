@@ -8,7 +8,7 @@ Ce TP permet de renforcer vos compétences en programmation orientée objets (PO
 Ce TP est donc adapté aux étudiants ayant un niveau intermédiaire à élevé..
 
 Niveau du TP: intermédiaire à elevé
-Démarche à suivre
+# Démarche à suivre
 
 Créer un dépôt git pour pouvoir faire du versioning « sérieux »
 Créer un Makefile pour pouvoir compiler efficacement du code
@@ -18,7 +18,7 @@ Valider le code.
 Faire un commit
 Repartir au point 3 tant que le problème n'est pas résolu dans sa globalité.
 
-Description du problème
+# Description du problème
 
 Lire attentivement les informations suivantes et bien comprendre le problème avant de commencer à écrire la moindre ligne de code.
 
@@ -31,7 +31,7 @@ L'implémentation de plusieurs algorithmes de chiffrement sera réalisée de la 
 Création d'une classe générique de chiffrement qui contiendra tous les éléments indispensables (lecture / écriture / stockage / affichage d'informations chiffrées ou non chiffrées)
 Spécialisation via l'héritage de cette classe générique en incluant l'algorithme de chiffrement / déchiffrement d'Enigma
 
-Présentation de la classe Encrypt
+# Présentation de la classe Encrypt
 
 La classe Encrypt peut être constituée de la manière suivante :
 
