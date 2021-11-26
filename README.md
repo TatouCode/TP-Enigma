@@ -10,13 +10,13 @@ Ce TP est donc adapté aux étudiants ayant un niveau intermédiaire à élevé.
 Niveau du TP: intermédiaire à elevé
 Démarche à suivre
 
-    Créer un dépôt git pour pouvoir faire du versioning « sérieux »
-    Créer un Makefile pour pouvoir compiler efficacement du code
-    Réfléchir à ce qu'on veut faire. Décomposer le problème en sous problème
-    Ecrire le code nécessaire à la résolution d'un sous problème. Toujours s'assurer que les objets créés sont valides.
-    Valider le code.
-    Faire un commit
-    Repartir au point 3 tant que le problème n'est pas résolu dans sa globalité.
+Créer un dépôt git pour pouvoir faire du versioning « sérieux »
+Créer un Makefile pour pouvoir compiler efficacement du code
+Réfléchir à ce qu'on veut faire. Décomposer le problème en sous problème
+Ecrire le code nécessaire à la résolution d'un sous problème. Toujours s'assurer que les objets créés sont valides.
+Valider le code.
+Faire un commit
+Repartir au point 3 tant que le problème n'est pas résolu dans sa globalité.
 
 Description du problème
 
@@ -28,16 +28,16 @@ L'objectif principal de ce TP est d'utiliser de manière efficace les compétenc
 
 L'implémentation de plusieurs algorithmes de chiffrement sera réalisée de la manière suivante :
 
-    Création d'une classe générique de chiffrement qui contiendra tous les éléments indispensables (lecture / écriture / stockage / affichage d'informations chiffrées ou non chiffrées)
-    Spécialisation via l'héritage de cette classe générique en incluant l'algorithme de chiffrement / déchiffrement d'Enigma
+Création d'une classe générique de chiffrement qui contiendra tous les éléments indispensables (lecture / écriture / stockage / affichage d'informations chiffrées ou non chiffrées)
+Spécialisation via l'héritage de cette classe générique en incluant l'algorithme de chiffrement / déchiffrement d'Enigma
 
 Présentation de la classe Encrypt
 
 La classe Encrypt peut être constituée de la manière suivante :
 
-    Deux variables « protected » de type String contenant respectivement le message non chiffré (_plain) et le message chiffré (_cipher). Le choix de « protected » est nécessaire pour que ces variables soient accessibles par les classes héritées.
-    Deux méthodes « public » de type getters permettant de lire le message déchiffré (plain()) et le message chiffré (`cipher()).
-    Une méthode « public » encode qui réalisera l'encodage du message non chiffré et une méthode « public » decode (réciproque de la précédente) qui réaliser le décodage du message chiffré. L'algorithme de cryptographie utilisé permettra de spécialiser la classe. Deux autres méthodes ou fonctions helper seront ajoutées pour lire (read) et écrire (write) sur le disque dur (afin d'éviter la saisie systématique d'une chaine à encoder) du message déchiffré ou chiffré. Chacune de ces fonctions aura comme paramètre le nom du fichier à lire/écrire. Pour plus de détails sur la lecture / écriture de fichiers en C++, voir par exemple https://openclassrooms.com/fr/courses/1894236-programmez-avec-le-langage-c/1896398-lisez-et-modifiez-des-fichiers.
+Deux variables « protected » de type String contenant respectivement le message non chiffré (_plain) et le message chiffré (_cipher). Le choix de « protected » est nécessaire pour que ces variables soient accessibles par les classes héritées.
+Deux méthodes « public » de type getters permettant de lire le message déchiffré (plain()) et le message chiffré (`cipher()).
+Une méthode « public » encode qui réalisera l'encodage du message non chiffré et une méthode « public » decode (réciproque de la précédente) qui réaliser le décodage du message chiffré. L'algorithme de cryptographie utilisé permettra de spécialiser la classe. Deux autres méthodes ou fonctions helper seront ajoutées pour lire (read) et écrire (write) sur le disque dur (afin d'éviter la saisie systématique d'une chaine à encoder) du message déchiffré ou chiffré. Chacune de ces fonctions aura comme paramètre le nom du fichier à lire/écrire. Pour plus de détails sur la lecture / écriture de fichiers en C++, voir par exemple https://openclassrooms.com/fr/courses/1894236-programmez-avec-le-langage-c/1896398-lisez-et-modifiez-des-fichiers.
 
 Question 1 : Création de la classe Encrypt
 
