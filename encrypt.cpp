@@ -1,22 +1,23 @@
 #include "encrypt.h"
+#include <iostream>
 
 namespace Crypt{
 
-Encrypt::Encrypt(string const _nomFichierRead, string const _nomFichierWrite, string _plain, string _cipher) {
+Encrypt::Encrypt(std::string const _nomFichierRead, std::string const _nomFichierWrite, std::string _plain, std::string _cipher) {
 	: _nomFichierRead(nomFichierRead), FichierWrite(nomFichierWrite) _plain(plain), _cipher(cipher)
 }
 
-	std::string Encrypt::plain(){
+	std::string Encrypt::getPlain(){
 
-		ifstream fichier(_nomFichierWrite)
+		std::ifstream fichier(_nomFichierWrite);
 		if(fichier)
 
    		{
-      		string ligne; 
+      		std::string ligne; 
       			while(getline(fichier, ligne)) 
       		{
 
-        	 cout << ligne << endl;
+        	 std::cout << ligne << std::endl;
       		}
 
    		}
@@ -25,26 +26,26 @@ Encrypt::Encrypt(string const _nomFichierRead, string const _nomFichierWrite, st
 
    		{
 
-      		cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+      		std::cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << std::endl;
 
    		}
 
 	}
 
-	std::string Encrypt::cipher(){
+	std::string Encrypt::getCipher(){
 
-		ifstream fichier(_nomFichierRead)
+		std::ifstream fichier(_nomFichierRead);
 		if(fichier)
 
    		{
 
 
-      		string ligne; 
+      		std::string ligne; 
       		while(getline(fichier, ligne)) 
 
       		{
 
-         		cout << ligne << endl;
+         		std::cout << ligne << std::endl;
       		}
 
    		}
@@ -53,27 +54,27 @@ Encrypt::Encrypt(string const _nomFichierRead, string const _nomFichierWrite, st
 
    		{
 
-      		cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+      		std::cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << std::endl;
 
    		}
 
 	}
 
 
-	std::string const Encrypt::read(string const _nomFichier){
+	std::string const Encrypt::read(std::string const _nomFichier){
 
-		ifstream fichier(_nomFichierRead)
+		std::ifstream fichier(_nomFichierRead);
 		if(fichier)
 
    		{
 
 
-      		string ligne; 
+      		std::string ligne; 
       		while(getline(fichier, ligne)) 
 
       		{
 
-         		cout << ligne << endl;
+         		std::cout << ligne << std::endl;
       		}
 
    		}
@@ -82,14 +83,14 @@ Encrypt::Encrypt(string const _nomFichierRead, string const _nomFichierWrite, st
 
    		{
 
-      		cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+      		std::cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << std::endl;
 
    		}
 	}
 
-	std::string const Encrypt::write(string const _nomFichier){
+	std::string const Encrypt::write(std::string const _nomFichier){
 
-			ofstream monFlux(_nomFichierWrite.c_str());
+			std::ofstream monFlux(_nomFichierWrite.c_str());
 			if(monFlux) 
 
 			{
@@ -101,7 +102,7 @@ Encrypt::Encrypt(string const _nomFichierRead, string const _nomFichierWrite, st
 
 			{
 
-   				 cout << "ERREUR: Impossible d'ouvrir le fichier." << endl;
+   				 std::cout << "ERREUR: Impossible d'ouvrir le fichier." << std::endl;
 
 			}
 	}
