@@ -22,6 +22,6 @@ protected:
 	std::string _cipher;
 
 
-}
+};
 
 }
