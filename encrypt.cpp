@@ -21,9 +21,9 @@ namespace Crypt{
 		return _cipher;
 	}
 
-	std::string const read(std::string const nomFichier)
+	std::string const read(std::string const cheminFichier)
 	{
-		std::ifstream monFlux(nomFichier);
+		std::ifstream monFlux(cheminFichier);
 		std::string ligne;
 		std::string message = "";
 		if(monFlux)
@@ -41,9 +41,9 @@ namespace Crypt{
 		return message;
 	}
 
-	void const write(std::string const nomFichier, std::string const message)
+	void const write(std::string const cheminFichier, std::string const message)
 	{
-		std::ofstream monFlux(nomFichier.c_str());
+		std::ofstream monFlux(cheminFichier.c_str());
 		if(monFlux) 
 		{
 			monFlux << message << std::endl;

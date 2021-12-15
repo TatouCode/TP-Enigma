@@ -5,8 +5,8 @@ namespace Crypt{
 
 class Encrypt {
 	public:
-		Encrypt(std::string plain);
-		Encrypt(std::string fichier);
+		//Encrypt(std::string plain);
+		Encrypt(std::string cheminFichier);
 		std::string getPlain();
 		std::string getCipher();
 		virtual std::string const decode(std::string const nomFichier) = 0;
