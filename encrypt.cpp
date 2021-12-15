@@ -3,108 +3,54 @@
 
 namespace Crypt{
 
-Encrypt::Encrypt(std::string const _nomFichierRead, std::string const _nomFichierWrite, std::string _plain, std::string _cipher) {
-	: _nomFichierRead(nomFichierRead), FichierWrite(nomFichierWrite) _plain(plain), _cipher(cipher)
-}
+	/*Encrypt::Encrypt(std::string plain) 
+		: _plain(plain){}*/
 
-	std::string Encrypt::getPlain(){
+	Encrypt::Encrypt(std::string cheminFichier) 
+	{
+		_plain = read(cheminFichier);
+	}
 
-		std::ifstream fichier(_nomFichierWrite);
-		if(fichier)
+	std::string Encrypt::getPlain()
+	{
+		return _plain;
+	}
 
-   		{
-      		std::string ligne; 
-      			while(getline(fichier, ligne)) 
+	std::string Encrypt::getCipher()
+	{
+		return _cipher;
+	}
+
+	std::string const read(std::string const nomFichier)
+	{
+		std::ifstream monFlux(nomFichier);
+		std::string ligne;
+		std::string message = "";
+		if(monFlux)
+   		{ 
+      		while(getline(monFlux, ligne)) 
       		{
-
-        	 std::cout << ligne << std::endl;
+				message += ligne;
       		}
-
    		}
-
    		else
-
    		{
-
       		std::cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << std::endl;
 
    		}
-
+		return message;
 	}
 
-	std::string Encrypt::getCipher(){
-
-		std::ifstream fichier(_nomFichierRead);
-		if(fichier)
-
-   		{
-
-
-      		std::string ligne; 
-      		while(getline(fichier, ligne)) 
-
-      		{
-
-         		std::cout << ligne << std::endl;
-      		}
-
-   		}
-
-   		else
-
-   		{
-
-      		std::cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << std::endl;
-
-   		}
-
+	void const write(std::string const nomFichier, std::string const message)
+	{
+		std::ofstream monFlux(nomFichier.c_str());
+		if(monFlux) 
+		{
+			monFlux << message << std::endl;
+		}
+		else
+		{
+				std::cout << "ERREUR: Impossible d'ouvrir le fichier." << std::endl;
+		}
 	}
-
-
-	std::string const Encrypt::read(std::string const _nomFichier){
-
-		std::ifstream fichier(_nomFichierRead);
-		if(fichier)
-
-   		{
-
-
-      		std::string ligne; 
-      		while(getline(fichier, ligne)) 
-
-      		{
-
-         		std::cout << ligne << std::endl;
-      		}
-
-   		}
-
-   		else
-
-   		{
-
-      		std::cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << std::endl;
-
-   		}
-	}
-
-	std::string const Encrypt::write(std::string const _nomFichier){
-
-			std::ofstream monFlux(_nomFichierWrite.c_str());
-			if(monFlux) 
-
-			{
-				std::cin >> monFlux;
-
-			}
-
-			else
-
-			{
-
-   				 std::cout << "ERREUR: Impossible d'ouvrir le fichier." << std::endl;
-
-			}
-	}
-
 }

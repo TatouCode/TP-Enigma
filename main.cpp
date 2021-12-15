@@ -4,7 +4,8 @@
 
 int main (){
 
-	Crypt::Encrypt
+	
+	
 
 
 
