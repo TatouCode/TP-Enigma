@@ -1,4 +1,5 @@
 #include <string>
+#include "encrypt.h"
 
 namespace Crypt{
 
@@ -14,5 +15,6 @@ namespace Crypt{
     };
 
     std::string melangeString(std::string message);
+    std::string decalageString(std::string message);
 
 }
