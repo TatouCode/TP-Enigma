@@ -5,9 +5,10 @@ namespace Crypt{
 
     class Enigma : public Encrypt{
         public:
-            Enigma(std::string cheminFichier);
-            std::string const decode(std::string const nomFichier) override;
-		    std::string const encode(std::string const nomFichier) override;
+            Enigma();
+            Enigma(std::string const cheminFichierLecture, std::string const cheminFichierEcriture);
+            void const decode() override;
+		    void const encode() override;
 
         private:
             std::string _cleChiffrement; 
@@ -15,6 +16,7 @@ namespace Crypt{
     };
 
     std::string melangeString(std::string message);
-    std::string decalageString(std::string message);
+    std::string decalageStringGauche(std::string message);
+    std::string decalageStringDroit(std::string message);
 
 }

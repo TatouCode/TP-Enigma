@@ -6,19 +6,50 @@
 
 namespace Crypt{
 
-    Enigma::Enigma(std::string cheminFichier) : Encrypt{cheminFichier}
+    Enigma::Enigma() : Encrypt{}
     {
         srand(time(NULL));
         _cleChiffrement = melangeString(_alphabet);
-        _plain = read(cheminFichier);
     }
 
-    std::string const Enigma::decode(std::string const nomFichier) 
-    {}
-
-    std::string const Enigma::encode(std::string const nomFichier)
+    Enigma::Enigma(std::string const cheminFichierLecture, std::string const cheminFichierEcriture) : Encrypt{cheminFichierLecture, cheminFichierEcriture}
     {
-        
+        srand(time(NULL));
+        _cleChiffrement = melangeString(_alphabet);
+    }
+
+    void const Enigma::decode() 
+    {
+        std::string messageDecode = "";
+        std::string cleTemp = _cleChiffrement;
+        for(int i=0; i<=_cipher.size()-1; i++)
+        {
+            int j = 0;
+            while(_cipher.at(i) != _alphabet.at(j))
+            {
+                j += 1;
+            }
+            messageDecode += cleTemp.at(j);
+            cleTemp = decalageStringDroit(cleTemp);
+        }
+        _plain = messageDecode;
+    }
+
+    void const Enigma::encode()
+    {
+        std::string messageEncode = "";
+        std::string cleTemp = _cleChiffrement;
+        for(int i=0; i<=_plain.size()-1; i++)
+        {
+            int j = 0;
+            while(_plain.at(i) != _alphabet.at(j))
+            {
+                j += 1;
+            }
+            messageEncode += cleTemp.at(j);
+            cleTemp = decalageStringGauche(cleTemp);
+        }
+        _cipher = messageEncode;
     }
 
 
@@ -39,7 +70,7 @@ namespace Crypt{
         return messageMelange;
     }
 
-    std::string decalageString(std::string message)
+    std::string decalageStringGauche(std::string message)
     {
         std::string messageDecale = "";
         int nbLettre = message.size()-1;
@@ -49,6 +80,19 @@ namespace Crypt{
             messageDecale += message.at(i);
         }
         messageDecale += premiereLettre;
+        return messageDecale;
+    }
+
+    std::string decalageStringDroit(std::string message)
+    {
+        std::string messageDecale = "";
+        int nbLettre = message.size()-1;
+        char derniereLettre = message.at(message.size()-1);
+        messageDecale += derniereLettre;
+        for(int i=0; i<nbLettre; i++)
+        {
+            messageDecale += message.at(i);
+        }
         return messageDecale;
     }
 
