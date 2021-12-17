@@ -9,25 +9,31 @@ namespace Crypt{
     Enigma::Enigma(std::string cheminFichier)
     {
         srand(time(NULL));
-    }
-
-    std::string Enigma::initCle()
-    {
-        std::string cle = "";
-        std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
-        int nbLettre = 26;
-        for(int i=0; i<26; i++)
-        {
-            int lettre = rand()%(26-i);
-            cle += alphabet.at(lettre);
-            alphabet.erase(lettre);
-        }
-        _cleChiffrement = cle;
+        _cleChiffrement = melangeString(_alphabet);
+        //_plain = read(cheminFichier);
     }
 
     std::string const Enigma::decode(std::string const nomFichier) 
     {}
     std::string const Enigma::encode(std::string const nomFichier)
     {}
+
+
+    std::string melangeString(std::string message)
+    {
+        std::string messageMelange = "";
+        int nbLettre = message.size()-1;
+        for(int i=0; i<nbLettre; i++)
+        {
+            int lettre = rand()%(nbLettre-i);
+            messageMelange += message.at(lettre);
+            message.erase(std::string::size_type(lettre), 1);
+            if(message.size() == 1)
+            {
+                messageMelange += message;
+            }
+        }
+        return messageMelange;
+    }
 
 }

@@ -10,7 +10,9 @@ namespace Crypt{
 
         private:
             std::string _cleChiffrement; 
-            std::string initCle();
+            std::string const _alphabet = "abcdefghijklmnopqrstuvwxyz";
     };
+
+    std::string melangeString(std::string message);
 
 }
