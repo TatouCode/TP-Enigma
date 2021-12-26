@@ -42,10 +42,19 @@ namespace Crypt{
    		{ 
       		while(getline(monFlux, ligne)) 
       		{
+				ligne.erase(std::remove(ligne.begin(), ligne.end(), ' '), ligne.end());
 				std::transform(ligne.begin(), ligne.end(),
 				ligne.begin(), [](unsigned char c){return std::tolower(c);});
 				message += ligne;
       		}
+			// Efface les caractères indésirables
+			for(int i=0; i<message.size()-1; i++)
+			{
+				if((int)message.at(i)<97 || (int)message.at(i)>122)
+				{
+					message.erase(i, 1);
+				}
+			}
    		}
    		else
    		{

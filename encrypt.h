@@ -11,8 +11,8 @@ class Encrypt {
 		std::string getCipher();
 		void setPlain(std::string plain);
 		void setCipher(std::string cipher);
-		virtual void const decode() = 0;
-		virtual void const encode() = 0;
+		virtual std::string const decode() = 0;
+		virtual std::string const encode() = 0;
 
 	protected:
 		std::string _plain;
