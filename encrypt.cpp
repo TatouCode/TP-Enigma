@@ -1,3 +1,13 @@
+/**
+ * @file encrypt.cpp
+ * @author Lucas
+ * @author Benjamin
+ * @brief Implémente les fonctions de encrypt.h
+ * @version 1.0
+ * @date 2022-01-04
+ * 
+ */
+
 #include "encrypt.h"
 #include <iostream>
 #include <algorithm>
@@ -5,6 +15,7 @@
 
 namespace Crypt{
 
+	
 	Encrypt::Encrypt(std::string const cheminFichierLecture, std::string const cheminFichierEcriture)
 		: _cheminFichierLecture(cheminFichierLecture), _cheminFichierEcriture(cheminFichierEcriture)
 	{

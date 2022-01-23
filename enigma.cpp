@@ -1,3 +1,13 @@
+/**
+ * @file enigma.cpp
+ * @author Lucas 
+ * @author Benjamin
+ * @brief Fichier qui implémente les fonctions de Enigma.h
+ * @version 1.0
+ * @date 2022-01-04
+ * 
+ */
+
 #include "enigma.h"
 #include <stdio.h>      /* printf, NULL */
 #include <stdlib.h>     /* srand, rand */
@@ -11,8 +21,6 @@ namespace Crypt{
     Enigma::Enigma() : Encrypt{}
     {
         srand(time(NULL));
-        //_cleChiffrement = _alphabet;
-        //_cleChiffrement2 = _alphabet;
         _cleChiffrement = melangeString(_alphabet);
         _cleChiffrement2 = melangeString(_alphabet);
     }
@@ -26,26 +34,9 @@ namespace Crypt{
 
     std::string const Enigma::decode() 
     {
-        //return vigenereDecode(_cipher, _cleChiffrement);
-        return decode2Rotor();
+        return vigenereDecode(_cipher, _cleChiffrement); // decode avec 1 rotor
+        //return decode2Rotor(); // decode avec 2 rotor
     }
-
-    /*std::string const Enigma::decode1Rotor() 
-    {
-        std::string messageDecode = "";
-        std::string cleTemp = _cleChiffrement;
-        for(int i=0; i<=_cipher.size()-1; i++)
-        {
-            int j = 0;
-            while(_cipher.at(i) != cleTemp.at(j))
-            {
-                j += 1;
-            }
-            messageDecode += _alphabet.at(j);
-            cleTemp = decalageStringGauche(cleTemp);
-        }
-        return messageDecode;
-    }*/
 
     std::string const Enigma::decode2Rotor() 
     {
@@ -78,31 +69,13 @@ namespace Crypt{
             messageDecode += lettreCode;
         }
         return messageDecode;
- 
     }
 
     std::string const Enigma::encode()
     {
-        //return vigenereCode(_plain, _cleChiffrement);
-        return encode2Rotor();
+        return vigenereCode(_plain, _cleChiffrement); // encode avec 1 rotor
+        //return encode2Rotor(); // encode avec 2 rotor
     }
-
-    /*std::string const Enigma::encode1Rotor()
-    {
-        std::string messageEncode = "";
-        std::string cleTemp = _cleChiffrement;
-        for(int i=0; i<=_plain.size()-1; i++)
-        {
-            int j = 0;
-            while(_plain.at(i) != _alphabet.at(j))
-            {
-                j += 1;
-            }
-            messageEncode += cleTemp.at(j);
-            cleTemp = decalageStringGauche(cleTemp);
-        }
-        return messageEncode;
-    }*/
 
     std::string const Enigma::encode2Rotor()
     {
@@ -128,8 +101,6 @@ namespace Crypt{
             messageEncode += lettreCode;
         }
         return messageEncode;
-
-
     }
 
     std::string melangeString(std::string message)
@@ -152,7 +123,6 @@ namespace Crypt{
     std::string vigenereCode(std::string message, std::string cle)
     {
         std::string messageEncode = "";
-        //std::string cleTemp = _cleChiffrement;
         int j = 0;
         for(int i=0; i<=message.size()-1; i++)
         {
@@ -162,7 +132,6 @@ namespace Crypt{
             char lettreCode = char(nbCode+97);
             j = (j+1) % cle.size();
             messageEncode += lettreCode;
-            //std::cout << (int)lettreCode << std::endl;
         }
         return messageEncode;
     }
@@ -181,7 +150,6 @@ namespace Crypt{
                 nbCode = 26 - (-nbCode);
             }
             char lettreCode = char(nbCode+97);
-            //std::cout << nbCode  << std::endl;
             j = (j+1) % cle.size();
             messageEncode += lettreCode;
         }
